@@ -64,7 +64,6 @@ import {ethers} from "ethers";
 import UpdateIcon from "../components/icon";
 import {getUploadByAddress, deleteFile, deleteFiles} from '@/utils/profile';
 
-const copy = require('clipboard-copy')
 const hexToString = (h) => ethers.utils.toUtf8String(h);
 
 export default {
@@ -123,13 +122,7 @@ export default {
             this.result = [];
           });
     },
-    onCopy(url){
-      copy(url);
-      this.$notify({
-        title: 'Success',
-        message: 'Copy Success',
-        type: 'success'
-      });
+    onCopy(){
     },
     onDelete(item) {
       const { FileBoxController} = this.$store.state.chainConfig;

@@ -1,7 +1,5 @@
-html, body, #app {
-    height: 100%;
-}
-
 html {
     background: url("../bg.png");
+    height: 100vh;
+    font-kerning: auto;
 }

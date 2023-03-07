@@ -14,6 +14,7 @@ Vue.use(Element)
 Vue.use(AsyncComputed, {
   default: 0
 });
+
 Vue.config.productionTip = false
 
 new Vue({

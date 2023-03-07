@@ -7,12 +7,12 @@
       <el-container>
         <el-header class="header">
           <img class="header-icon" src="./assets/logo.png"/>
-          <div class="header-title">Stanford Blockchain Review</div>
+          <div class="header-title">Stanford Blockchain</div>
           <div></div>
         </el-header>
 
-        <el-main :style="'min-height:'+ (fullHeight-195) +'px;'">
-          <router-view :key="$route.fullPath" />
+        <el-main :style="'min-height:'+ (fullHeight-235) +'px;'">
+          <router-view :key="$route.fullPath"/>
         </el-main>
 
         <el-footer class="footer">
@@ -51,7 +51,7 @@ export default {
       fullHeight: document.documentElement.clientHeight
     }
   },
-  computed:{
+  computed: {
     isMobile() {
       return Layout.isMobile();
     },
@@ -97,21 +97,22 @@ export default {
 }
 
 .header {
-  height: 64px !important;
+  height: 104px !important;
   padding: 5px 20px !important;
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
   align-items: center;
 }
+
 .header-icon {
   width: 60px;
 }
 .header-title {
-  color: black;
-  font-size: 23px;
-  font-family: AlibabaPuHuiTiR;
+  font-size: 22px;
+  color: #404040;
+  margin-left: 5px;
+  font-family: AlibabaPuHuiTiB;
 }
-
 
 .footer {
   padding: 30px !important;
