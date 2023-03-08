@@ -6,9 +6,8 @@
     <div id="app">
       <el-container>
         <el-header class="header">
-          <img class="header-icon" src="./assets/logo.png"/>
-          <div class="header-title">Stanford Blockchain</div>
-          <div></div>
+          <img class="header-icon" src="./assets/logo.png" @click="goHome"/>
+          <div class="header-title" @click="goHome">Stanford Blockchain</div>
         </el-header>
 
         <el-main :style="'min-height:'+ (fullHeight-235) +'px;'">
@@ -81,6 +80,9 @@ export default {
           that.fullHeight = window.fullHeight;
         })()
       }
+    },
+    goHome() {
+      this.$router.push({path: "/"});
     }
   }
 }
@@ -102,15 +104,18 @@ export default {
   display: flex;
   justify-content: start;
   align-items: center;
+  border-bottom: 0 !important;
 }
 
 .header-icon {
   width: 60px;
+  cursor: pointer;
 }
 .header-title {
   font-size: 22px;
   color: #404040;
   margin-left: 5px;
+  cursor: pointer;
   font-family: AlibabaPuHuiTiB;
 }
 

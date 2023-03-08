@@ -1,53 +1,48 @@
 <template>
   <div class="home">
-    <div class="post-preview">
-      <img src="https://substackcdn.com/image/fetch/w_336,h_255,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F32081740-22fb-40ff-b3fd-24c273f2ebda_1200x630.png"
-           class="post-preview-image"/>
-      <div class="post-preview-content">
-        <div class="post-preview-title">
-          Nexus: Enabling General Purpose Verifiable Cloud Computing
-        </div>
-        <div class="post-preview-description">
-          Providing Scalability Through Verifiability. Volume 1, Article No. 4.
-        </div>
-        <div class="post-ufi">
-          <div>
-            Stanford Blockchain Review
+    <el-card class="post-card" v-for="blog in blogList" :key="blog.id" >
+      <div class="post-preview" @click.stop="goBlog(blog.id)">
+        <img :src="blog.cover" class="post-preview-image"/>
+        <div class="post-preview-content">
+          <div class="post-preview-title">
+            {{ blog.title }}
           </div>
-          <div class="post-date">
-            Mar 1
+          <div class="post-preview-description">
+            {{ blog.description }}
           </div>
-        </div>
-      </div>
-    </div>
-    <div class="post-preview">
-      <img src="https://substackcdn.com/image/fetch/w_336,h_255,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F32081740-22fb-40ff-b3fd-24c273f2ebda_1200x630.png"
-           class="post-preview-image"/>
-      <div class="post-preview-content">
-        <div class="post-preview-title">
-          Nexus: Enabling General Purpose Verifiable Cloud Computing
-        </div>
-        <div class="post-preview-description">
-          Providing Scalability Through Verifiability. Volume 1, Article No. 4.
-        </div>
-        <div class="post-ufi">
-          <div>
-            Stanford Blockchain Review
-          </div>
-          <div class="post-date">
-            Mar 1
+          <div class="post-ufi">
+            <div>
+              {{ blog.user }}
+            </div>
+            <div class="post-date">
+              {{ blog.publishTime }}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </el-card>
   </div>
 </template>
 
 <script>
 
+import {getBlogList} from "@/utils/web3";
+
 export default {
   name: 'Home',
-
+  asyncComputed: {
+    blogList: {
+      async get() {
+        return await getBlogList();
+      },
+      default: [],
+    },
+  },
+  methods: {
+    goBlog(id) {
+      this.$router.push({path: "/blog/" + id});
+    }
+  }
 }
 </script>
 
@@ -57,7 +52,15 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 0;
+  padding: 10px 0 40px;
+}
+
+.post-card {
+  margin: 10px;
+  cursor: pointer;
+}
+.post-card:hover {
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .post-preview {
@@ -65,11 +68,6 @@ export default {
   flex-flow: row;
   justify-content: space-between;
   align-items: center;
-  padding: 16px;
-  cursor: pointer;
-}
-.post-preview:hover {
-  background: rgba(0, 0, 0, 0.1);
 }
 .post-preview-image {
   width: 168px;
@@ -87,24 +85,30 @@ export default {
 .post-preview-title {
   font-size: 18px;
   color: #404040;
-  overflow: hidden;
+  width: 100%;
+  text-align: left;
   text-overflow:ellipsis;
   white-space: nowrap;
-  font-family: AlibabaPuHuiTiB;
+  overflow:hidden;
+  font-family: AlibabaPuHuiTiM;
 }
 .post-preview-description {
   font-size: 16px;
   color: #8c8c8c;
   margin: 4px 0;
+  width: 100%;
+  text-align: left;
   overflow: hidden;
   text-overflow:ellipsis;
   white-space: nowrap;
+  font-family: AlibabaPuHuiTiR;
 }
 .post-ufi {
-  font-size: 12px;
+  font-size: 14px;
   color: #8c8c8c;
   display: flex;
   flex-flow: row;
+  font-family: AlibabaPuHuiTiB;
 }
 .post-date {
   margin-left: 10px;
