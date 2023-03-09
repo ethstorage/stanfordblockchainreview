@@ -7,7 +7,7 @@
       <el-container>
         <el-header class="header">
           <div class="header-main">
-            <img class="header-icon" src="assets/logo.png" @click="goHome"/>
+            <img class="header-icon" src="@/assets/logo.png" @click="goHome"/>
             <div class="header-title" @click="goHome">Stanford Blockchain Review</div>
           </div>
         </el-header>
