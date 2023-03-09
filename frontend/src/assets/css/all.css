@@ -3,5 +3,5 @@ html, body, #app {
     margin: 0;
 }
 html {
-    background: url("../bg.png");
+    background: url("src/assets/bg.png");
 }
