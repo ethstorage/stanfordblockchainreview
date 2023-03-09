@@ -1,6 +1,7 @@
 <template>
   <div class="home">
-    <el-card class="post-card" v-for="blog in blogList" :key="blog.id" >
+    <div v-if="this.blogList.length <= 0" class="domain-loading" v-loading="true"/>
+    <el-card v-else class="post-card" v-for="blog in blogList" :key="blog.id" >
       <div class="post-preview" @click.stop="goBlog(blog.id)">
         <img :src="blog.cover" class="post-preview-image"/>
         <div class="post-preview-content">
@@ -53,6 +54,14 @@ export default {
   flex-direction: column;
   align-items: center;
   padding: 10px 0 40px;
+}
+
+.domain-loading {
+  min-width: 40vw;
+  min-height: 50vh;
+}
+.domain-loading >>> .el-loading-mask{
+  background: transparent !important;
 }
 
 .post-card {

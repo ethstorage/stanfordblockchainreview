@@ -11,7 +11,9 @@
         </el-header>
 
         <el-main :style="'min-height:'+ (fullHeight-235) +'px;'">
-          <router-view :key="$route.fullPath"/>
+          <keep-alive max="10">
+            <router-view :key="$route.fullPath"/>
+          </keep-alive>
         </el-main>
 
         <el-footer class="footer">
@@ -82,7 +84,7 @@ export default {
       }
     },
     goHome() {
-      this.$router.push({path: "/"});
+      this.$router.go(-1);
     }
   }
 }
