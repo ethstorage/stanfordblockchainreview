@@ -1,1 +1,1 @@
-# stanford-blockchain
+# Stanford Blockchain Review

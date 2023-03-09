@@ -8,7 +8,7 @@
         <el-header class="header">
           <div class="header-main">
             <img class="header-icon" src="./assets/logo.png" @click="goHome"/>
-            <div class="header-title" @click="goHome">Stanford Blockchain</div>
+            <div class="header-title" @click="goHome">Stanford Blockchain Review</div>
           </div>
         </el-header>
 
@@ -21,7 +21,7 @@
         <el-footer class="footer">
           <div class="footer-layout">
             <el-row>
-              <a href="https://github.com/ethstorage/stanford-blockchain" target="_blank">
+              <a href="https://github.com/ethstorage/stanfordblockchainreview" target="_blank">
                 <img class="footer-img" src="@/assets/git.png">
               </a>
               <a href="https://twitter.com/EthStorage" target="_blank">
