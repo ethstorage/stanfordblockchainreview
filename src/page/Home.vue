@@ -117,9 +117,51 @@ export default {
   color: #8c8c8c;
   display: flex;
   flex-flow: row;
+  text-align: left;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  overflow:hidden;
   font-family: AlibabaPuHuiTiB;
 }
 .post-date {
   margin-left: 10px;
+}
+
+@media screen and (max-width: 500px) {
+  .home {
+    padding: 0;
+    width: 100%;
+    margin-top: -15px;
+  }
+
+  .post-card {
+    width: 100%;
+    margin: 5px 0;
+    padding: 0;
+  }
+
+  .post-preview-image {
+    width: 80px;
+    height: 70px;
+  }
+  .post-preview-content {
+    width: 100%;
+    height: 70px;
+    margin-left: 10px;
+  }
+  .post-preview-title {
+    font-size: 14px;
+    width: 100%;
+  }
+  .post-preview-description {
+    font-size: 12px;
+    width: 100%;
+  }
+  .post-ufi {
+    font-size: 12px;
+  }
+  .post-date {
+    margin-left: 10px;
+  }
 }
 </style>

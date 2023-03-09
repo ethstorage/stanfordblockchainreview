@@ -3,11 +3,13 @@
     <w3q-tip v-if="!isMobile" style="width: 100vw" bgColor="#E85C57" fontColor="#ffffff" fontSize="15px"/>
     <w3q-tip v-else style="width: 100vw" bgColor="#E85C57" fontColor="#ffffff" fontSize="12px"/>
 
-    <div id="app">
+    <div id="context">
       <el-container>
         <el-header class="header">
-          <img class="header-icon" src="./assets/logo.png" @click="goHome"/>
-          <div class="header-title" @click="goHome">Stanford Blockchain</div>
+          <div class="header-main">
+            <img class="header-icon" src="./assets/logo.png" @click="goHome"/>
+            <div class="header-title" @click="goHome">Stanford Blockchain</div>
+          </div>
         </el-header>
 
         <el-main :style="'min-height:'+ (fullHeight-235) +'px;'">
@@ -91,24 +93,22 @@ export default {
 </script>
 
 <style>
-#app {
+#context {
   max-width: 1200px;
   text-align: center;
-  font-family: Avenir, Helvetica, Arial, AlibabaPuHuiTiM, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   margin: 0 auto;
 }
 
 .header {
   height: 104px !important;
-  padding: 5px 20px !important;
+  padding: 15px 20px !important;
+  border-bottom: 0 !important;
+}
+.header-main {
   display: flex;
   justify-content: start;
   align-items: center;
-  border-bottom: 0 !important;
 }
-
 .header-icon {
   width: 60px;
   cursor: pointer;
@@ -140,6 +140,18 @@ export default {
 }
 
 @media screen and (max-width: 500px) {
+  .header {
+    height: 70px !important;
+    padding: 15px !important;
+  }
+
+  .header-icon {
+    width: 40px;
+  }
+  .header-title {
+    font-size: 18px;
+  }
+
   .footer-img {
     width: 28px;
   }

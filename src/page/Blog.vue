@@ -23,9 +23,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-@import "../assets/styles/mixins.scss";
-@import "../assets/styles/vars.scss";
-
 .domain-loading {
   min-width: 40vw;
   min-height: 50vh;
