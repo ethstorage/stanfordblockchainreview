@@ -1,18 +1,17 @@
 import {ethers} from "ethers";
 
-const BLOG_ADDRESS = '0xa215d1BE9260bBCa4e46FE7Cd6D556f4fE94bef1';
+const BLOG_ADDRESS = '0x5454fcF773C6Af515CecC5626f383949f9a0159B';
+const FILE_ADDRESS = '0xC9f9A8c8adFA479C0D3438e8FD1B614049af4136';
 
 const FileAbi = [
-    "  function getBlogList() public view returns (\n" +
+    "  function getBlogList() public view returns (  " +
     "            bytes[] memory uuids,\n" +
-    "            bytes[] memory covers,\n" +
     "            bytes[] memory titles,\n" +
     "            bytes[] memory descriptions,\n" +
-    "            bytes[] memory blogUrls,\n" +
     "            bytes[] memory users,\n" +
-    "            bytes[] memory publishTimes\n" +
-    "        )",
-    "function getBlog(bytes memory name) public view virtual returns(bytes memory blog)"
+    "            bytes[] memory publishTimes,\n" +
+    "            bytes[] memory covers)",
+    "function getFile(bytes memory name) public view virtual returns(bytes memory blog)"
 ];
 
 function hexToString(s) {
@@ -28,22 +27,21 @@ export async function getBlogList() {
     const contract = BlogContract();
     const result = await contract.getBlogList();
     const uuids = result[0];
-    const covers = result[1];
-    const titles = result[2];
-    const descriptions = result[3];
-    const blogUrls = result[4];
-    const users = result[5];
-    const publishTimes = result[6];
+    const titles = result[1];
+    const descriptions = result[2];
+    const users = result[3];
+    const publishTimes = result[4];
+    const covers = result[5];
     const blogList = [];
+    const imageGateway = "https://" + FILE_ADDRESS + ".w3q-g.w3link.io/";
     for (let i = uuids.length - 1; i >= 0; i--) {
         const item = {
             id: uuids[i],
-            cover: hexToString(covers[i]),
             title: hexToString(titles[i]),
             description: hexToString(descriptions[i]),
-            blogUrl: hexToString(blogUrls[i]),
             user: hexToString(users[i]),
             publishTime: hexToString(publishTimes[i]),
+            cover: imageGateway + hexToString(covers[i]),
         }
         blogList.push(item);
     }
@@ -52,7 +50,6 @@ export async function getBlogList() {
 
 export async function getBlog(id) {
     const contract = BlogContract();
-    const blog = await contract.getBlog(id);
-    console.log("javascript: '" + hexToString(blog) + "'")
+    const blog = await contract.getFile(id);
     return hexToString(blog);
 }
