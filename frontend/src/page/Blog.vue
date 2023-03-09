@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div v-if="!this.context" class="domain-loading" v-loading="true"/>
-    <div v-else class="profile-card" v-html="this.context"/>
+    <div v-if="!this.content" class="domain-loading" v-loading="true"/>
+    <div v-else class="profile-card" v-html="this.content"/>
   </div>
 </template>
 
@@ -11,7 +11,7 @@ import {getBlog} from "@/utils/web3";
 export default {
   name: 'Blog',
   asyncComputed: {
-    context: {
+    content: {
       async get() {
         return await getBlog(this.$route.params.id);
       },
@@ -33,6 +33,7 @@ export default {
 
 .profile-card {
   background: transparent;
+  text-align: left;
 }
 .profile-card >>> .single-post-container {
   background: transparent !important;

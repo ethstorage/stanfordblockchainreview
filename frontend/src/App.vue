@@ -3,7 +3,7 @@
     <w3q-tip v-if="!isMobile" style="width: 100vw" bgColor="#E85C57" fontColor="#ffffff" fontSize="15px"/>
     <w3q-tip v-else style="width: 100vw" bgColor="#E85C57" fontColor="#ffffff" fontSize="12px"/>
 
-    <div id="context">
+    <div id="content">
       <el-container>
         <el-header class="header">
           <div class="header-main">
@@ -93,7 +93,7 @@ export default {
 </script>
 
 <style>
-#context {
+#content {
   max-width: 1200px;
   text-align: center;
   margin: 0 auto;

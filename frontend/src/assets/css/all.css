@@ -2,6 +2,6 @@ html, body, #app {
     height: 100%;
     margin: 0;
 }
-html {
-    background: url("../bg.png");
+body {
+    background: white;
 }
