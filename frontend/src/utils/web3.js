@@ -1,7 +1,7 @@
 import {ethers} from "ethers";
 
-const BLOG_ADDRESS = '0x5454fcF773C6Af515CecC5626f383949f9a0159B';
-const FILE_ADDRESS = '0xC9f9A8c8adFA479C0D3438e8FD1B614049af4136';
+const BLOG_ADDRESS = '0x7241925dFAe027d30a0913f800AA982865F27a37';
+const FILE_ADDRESS = '0x80BFB57Ff7820AccB9fCFA2c9633fFAaeEf60f62'.toLowerCase();
 
 const FileAbi = [
     "  function getBlogList() public view returns (  " +
